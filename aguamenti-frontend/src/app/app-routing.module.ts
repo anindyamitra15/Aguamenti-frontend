@@ -22,7 +22,7 @@ const routes: Routes = [
     component: LoginComponent,
     children: [
       {
-        path: 'sign-in',
+        path: '',
         component: SignInComponent,
       },
       {
