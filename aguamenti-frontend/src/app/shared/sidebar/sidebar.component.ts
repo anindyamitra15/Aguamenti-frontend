@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  @Input() sidebar: boolean = false;
+  @Input() sidebar: boolean = true;
   @Output() sidebarEvent: EventEmitter<boolean>;
   constructor() {
     this.sidebarEvent = new EventEmitter<boolean>();
