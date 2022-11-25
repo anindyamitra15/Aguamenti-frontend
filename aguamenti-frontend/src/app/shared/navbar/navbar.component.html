@@ -1,3 +1,26 @@
 <mat-toolbar>
-    <span>Aguamenti</span>
+    <span class="left">
+        <button *ngIf="shouldShowMenu" mat-icon-button (click)="onMenuToggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="app-name">Aguamenti</span>
+    </span>
+    <!-- <mat-card> -->
+    <!-- <mat-form-field appearance="standard">
+            <mat-label>Clearable input</mat-label>
+            <input matInput>
+            <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field> -->
+    <!-- </mat-card> -->
+    <span class="right">
+        <!-- <span class="message">
+            <span>Good Morning</span>
+            <span class="account">John Doe</span>
+        </span> -->
+        <button mat-fab class="mat-elevation-z0">
+            <img />
+        </button>
+    </span>
 </mat-toolbar>

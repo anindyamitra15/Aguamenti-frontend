@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  sidenavOpen!: boolean;
+  mobileView!: boolean;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onMenuToggle() {
+    this.sidenavOpen = !this.sidenavOpen;
+    console.log(this.sidenavOpen)
+  }
+
+  onMobileView(isMobileView: boolean) {
+    this.mobileView = isMobileView;
   }
 
 }

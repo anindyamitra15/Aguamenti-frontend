@@ -22,7 +22,6 @@ export class SignInComponent implements OnInit {
 
   modeSelect: FormControl;
   loginForm: FormGroup;
-  signupForm: FormGroup;
   hidePass: boolean = true;
 
   constructor(
@@ -35,10 +34,7 @@ export class SignInComponent implements OnInit {
       password: new FormControl('', Validators.required),
       name: new FormControl('', this.modeSelect.value === 'sign_up' ? Validators.required : [])
     });
-    this.signupForm = this.formBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
-    });
+ 
   }
 
   ngOnInit(): void {

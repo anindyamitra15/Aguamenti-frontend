@@ -1,0 +1,31 @@
+mat-toolbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .app-name {
+        color: #5d85f5;
+    }
+
+    .right {
+        display: inline-flex;
+        flex-direction: row;
+
+        .message {
+            font-size: 0.8rem;
+            font-weight: 300;
+            display: inline-flex;
+            flex-direction: column;
+            height: 1rem;
+            align-items: flex-end;
+            // justify-content: flex-end;
+            padding-right: 10px;
+
+            .account {
+                font-size: 1.3rem;
+                align-self: flex-start;
+            }
+        }
+    }
+}
