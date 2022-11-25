@@ -38,7 +38,7 @@ export class ApiService {
     email: string,
     password: string
   }): Observable<GenericApiResponse> {
-    const url = `${environment.uri}/users/login`;
+    const url = `${environment.uri}/user/login`;
     return this.http
       .post<GenericApiResponse>(url, body, this.getHttpOptions())
       .pipe(
@@ -60,7 +60,7 @@ export class ApiService {
     email: string,
     password: string
   }): Observable<GenericApiResponse> {
-    const url = `${environment.uri}/users/register`;
+    const url = `${environment.uri}/user/register`;
     return this.http
       .post<GenericApiResponse>(url, body, this.getHttpOptions())
       .pipe(
