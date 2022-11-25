@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { DeviceCardComponent } from './device-card/device-card.component';
 
 
 @NgModule({
@@ -31,11 +32,13 @@ import {MatInputModule} from '@angular/material/input';
     FooterComponent,
     SidebarComponent,
     SidebarOptionComponent,
+    DeviceCardComponent,
   ],
   exports: [
     NavbarComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    DeviceCardComponent,
   ]
 })
 export class SharedModule { }
