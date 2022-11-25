@@ -39,11 +39,9 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       .observe(['(max-width: 800px)'])
       .subscribe((res) => {
         if (res.matches) {
-          this.sidenav.mode = 'over';
           this.sidenav.close();
           this.onMobileView.emit(true);
         } else {
-          this.sidenav.mode = 'side';
           this.sidenav.open();
           this.onMobileView.emit(false);
         }
