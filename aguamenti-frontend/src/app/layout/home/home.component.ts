@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  sidenavOpen!: boolean;
-  mobileView!: boolean;
+  sidenavOpen: boolean = false;
+  mobileView: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
