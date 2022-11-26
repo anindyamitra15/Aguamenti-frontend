@@ -1,4 +1,4 @@
-<button mat-button (click)="onClick(option.value)">
+<button mat-button (click)="onClick(option.value)" [class]="selected?'selected':''">
     <mat-icon>{{option.icon}}</mat-icon>
     <span>{{option.item}}</span>
 </button>

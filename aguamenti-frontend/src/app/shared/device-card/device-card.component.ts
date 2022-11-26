@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DeviceType } from 'src/app/dtos/deviceTypes';
 
 @Component({
   selector: 'device-card',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeviceCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() name!: string;
+  @Input() state!: string;
+  @Input() value!: string;
+  @Input() device_type!: DeviceType;
+
+  constructor() {
+    this.name = '';
+    this.state = '';
+    this.value = '';
+    this.device_type = 'switch';
+  }
 
   ngOnInit(): void {
   }

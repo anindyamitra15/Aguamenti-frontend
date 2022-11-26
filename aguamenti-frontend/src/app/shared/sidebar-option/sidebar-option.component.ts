@@ -8,7 +8,9 @@ import { SidebarInterface } from 'src/app/dtos/sidebar.dtos';
 export class SidebarOptionComponent implements OnInit {
   @Input() option: SidebarInterface = {icon: '', item: '', value: ''};
   @Output() onSelect: EventEmitter<string>;
-  constructor() {
+  @Input() selected: boolean = false;
+  constructor(
+  ) {
     this.onSelect = new EventEmitter();
   }
 

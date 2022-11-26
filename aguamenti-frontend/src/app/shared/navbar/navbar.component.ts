@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @Input() shouldShowMenu!: boolean;
+  @Input() shouldShowMenu: boolean = false;
   @Output() menuToggle: EventEmitter<boolean>;
   constructor() {
     this.menuToggle = new EventEmitter();

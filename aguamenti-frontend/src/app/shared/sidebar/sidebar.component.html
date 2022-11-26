@@ -2,7 +2,7 @@
   <mat-sidenav-container class="container">
     <mat-sidenav class="sidenav" mode="side" [opened]="sidenavOpen" (openedChange)="sidenavState($event)">
       <mat-card>
-        <app-sidebar-option *ngFor="let option of SidebarOptions" [option]="option" (onSelect)="onSelect($event)">
+        <app-sidebar-option *ngFor="let option of SidebarOptions" [selected]="option.value === currentRoute" [option]="option" (onSelect)="onSelect($event)">
         </app-sidebar-option>
       </mat-card>
     </mat-sidenav>
