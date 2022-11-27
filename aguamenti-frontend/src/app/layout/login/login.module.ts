@@ -8,7 +8,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { SignInComponent } from 'src/app/pages/sign-in/sign-in.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
@@ -16,7 +15,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 @NgModule({
   declarations: [
     LoginComponent,
-    SignInComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +29,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   ],
   exports: [
     LoginComponent,
-    SignInComponent,
   ]
 })
 export class LoginModule { }

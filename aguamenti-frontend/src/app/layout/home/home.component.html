@@ -1,5 +1,7 @@
-<app-navbar [shouldShowMenu]="mobileView" (menuToggle)="onMenuToggle()"></app-navbar>
+<div class="home">
+    <app-navbar [shouldShowMenu]="mobileView" (menuToggle)="onMenuToggle()"></app-navbar>
 
-<app-sidebar [(sidenavOpen)]="sidenavOpen" (onMobileView)="onMobileView($event)">
-    <router-outlet></router-outlet>
-</app-sidebar>
+    <app-sidebar [(sidenavOpen)]="sidenavOpen" (onMobileView)="onMobileView($event)">
+        <router-outlet></router-outlet>
+    </app-sidebar>
+</div>

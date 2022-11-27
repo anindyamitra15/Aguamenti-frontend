@@ -10,17 +10,25 @@ export class DeviceCardComponent implements OnInit {
 
   @Input() name!: string;
   @Input() state!: string;
-  @Input() value!: string;
+  @Input() value!: string | number;
   @Input() device_type!: DeviceType;
 
   constructor() {
-    this.name = '';
+    this.name = 'My device';
     this.state = '';
-    this.value = '';
+    this.value = 69;
     this.device_type = 'switch';
   }
 
   ngOnInit(): void {
+  }
+
+  getValue()
+  {
+    if(typeof this.value === 'number'){
+      return `${this.value} %`;
+    }
+    return this.value;
   }
 
 }

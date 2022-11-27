@@ -1,2 +1,13 @@
-<p>device-card works!</p>
-<p><ng-content></ng-content></p>
+<mat-card>
+    <div class="top">
+        <h3 class="title">{{name}}</h3>
+        <button mat-icon-button class="edit">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+    <button mat-icon-button class="state">
+        <mat-icon>power_settings_new</mat-icon>
+    </button>
+
+    <div class="percentage">{{getValue()}}</div>
+</mat-card>
