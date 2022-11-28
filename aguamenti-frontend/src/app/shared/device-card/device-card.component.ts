@@ -17,10 +17,7 @@ export class DeviceCardComponent implements OnInit {
   @Input() device_type: DeviceType = 'switch';
   @Output() onUpdate: EventEmitter<any>;
 
-  stateBtnStyle = {
-    color: ''
-  };
-
+  
   constructor() {
     this.stateEmitter = new EventEmitter();
     this.valueEmitter = new EventEmitter();
@@ -28,12 +25,10 @@ export class DeviceCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stateBtnStyle.color = this.state ? '#5d85f5' : '#ff4e4e';
   }
 
   stateToggle() {
     this.state = !this.state;
-    this.stateBtnStyle.color = this.state ? '#5d85f5' : '#ff4e4e';
     this.stateEmitter.emit(this.state);
     this.onUpdate.emit({
       chip_id: this.chip_id,

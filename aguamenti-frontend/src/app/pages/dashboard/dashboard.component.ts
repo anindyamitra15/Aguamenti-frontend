@@ -73,6 +73,14 @@ export class DashboardComponent implements OnInit {
         });
 
         this.socket?.on('to_ui', (data) => {
+          console.log(data);
+
+          this.devices[data.chip_id].state = data.state;
+          this.devices[data.chip_id].value = data.value;
+        });
+        this.socket?.on('ui_sync', (data) => {
+          console.log(data);
+          
           this.devices[data.chip_id].state = data.state;
           this.devices[data.chip_id].value = data.value;
         });
