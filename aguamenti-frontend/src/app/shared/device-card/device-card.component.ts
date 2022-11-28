@@ -17,7 +17,7 @@ export class DeviceCardComponent implements OnInit {
   @Input() device_type: DeviceType = 'switch';
   @Output() onUpdate: EventEmitter<any>;
 
-  
+
   constructor() {
     this.stateEmitter = new EventEmitter();
     this.valueEmitter = new EventEmitter();
@@ -39,8 +39,8 @@ export class DeviceCardComponent implements OnInit {
 
   getValue() {
     if (typeof this.value === 'number') {
-      if (this.value > 100)
-        return `${this.value}`;
+      if (this.device_type === 'tank_level')
+        return 80 - this.value % 80;
       return `${this.value}%`;
     }
     return this.value;
