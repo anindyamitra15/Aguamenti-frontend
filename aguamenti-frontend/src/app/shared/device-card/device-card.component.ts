@@ -9,11 +9,13 @@ import { DeviceType } from 'src/app/dtos/deviceTypes';
 export class DeviceCardComponent implements OnInit {
 
   @Input() name: string = 'My device';
+  @Input() chip_id: string = '';
   @Input() state: boolean = true;
   @Output() stateEmitter: EventEmitter<boolean>;
   @Input() value: string | number = 69;
   @Output() valueEmitter: EventEmitter<string | number>;
   @Input() device_type: DeviceType = 'switch';
+  @Output() onUpdate: EventEmitter<any>;
 
   stateBtnStyle = {
     color: ''
@@ -22,6 +24,7 @@ export class DeviceCardComponent implements OnInit {
   constructor() {
     this.stateEmitter = new EventEmitter();
     this.valueEmitter = new EventEmitter();
+    this.onUpdate = new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -32,10 +35,17 @@ export class DeviceCardComponent implements OnInit {
     this.state = !this.state;
     this.stateBtnStyle.color = this.state ? '#5d85f5' : '#ff4e4e';
     this.stateEmitter.emit(this.state);
+    this.onUpdate.emit({
+      chip_id: this.chip_id,
+      state: this.state,
+      value: this.value
+    });
   }
 
   getValue() {
     if (typeof this.value === 'number') {
+      if (this.value > 100)
+        return `${this.value}`;
       return `${this.value}%`;
     }
     return this.value;

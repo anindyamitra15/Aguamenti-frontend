@@ -99,6 +99,15 @@ export class ApiService {
       .post<GenericApiResponse>(url, body, this.getHttpOptions(true));
   }
 
+
+  getHouseDetails(body: {
+    house_id: string
+  }): Observable<GenericApiResponse> {
+    const url = `${environment.uri}/house/details/${body.house_id}`;
+    return this.http
+      .get<GenericApiResponse>(url, this.getHttpOptions(true));
+  }
+
   deleteHouse(body: {
     house_id: string
   }): Observable<GenericApiResponse> {

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 interface Option {
-  value: string;
+  value: 'sign_up' | 'sign_in';
   view: string;
 };
 
@@ -26,6 +28,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router
   ) {
     this.modeSelect = new FormControl(this.options[0].value, Validators.required);
 
@@ -41,6 +45,33 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitDetails() {
+    console.log(this.loginForm.value);
+    switch (this.modeSelect.value) {
+      case 'sign_up':
+        {
+          this.api
+            .register(this.loginForm.value)
+            .subscribe(data => {
+              this.router.navigate(['']);
+            }
+            );
+        }
+        break;
 
+      case 'sign_in':
+        {
+          this.api
+            .login(this.loginForm.value)
+            .subscribe(data => {
+              this.router.navigate(['']);
+            }
+            );
+
+        }
+        break;
+
+      default:
+        break;
+    }
   }
 }

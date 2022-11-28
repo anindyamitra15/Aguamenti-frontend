@@ -33,7 +33,7 @@
                     </mat-icon-button>
                 </mat-form-field>
             </p>
-            <button mat-stroked-button color="primary" type="submit">Sign In</button>
+            <button mat-stroked-button color="primary" type="submit">{{modeSelect.value === 'sign_in' ? 'Sign In' : 'Sign Up'}}</button>
         </form>
     </mat-card>
 </div>
