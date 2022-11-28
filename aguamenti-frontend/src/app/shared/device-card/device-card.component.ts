@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DeviceType } from 'src/app/dtos/deviceTypes';
 
 @Component({
@@ -8,27 +8,49 @@ import { DeviceType } from 'src/app/dtos/deviceTypes';
 })
 export class DeviceCardComponent implements OnInit {
 
-  @Input() name!: string;
-  @Input() state!: string;
-  @Input() value!: string | number;
-  @Input() device_type!: DeviceType;
+  @Input() name: string = 'My device';
+  @Input() state: boolean = true;
+  @Output() stateEmitter: EventEmitter<boolean>;
+  @Input() value: string | number = 69;
+  @Output() valueEmitter: EventEmitter<string | number>;
+  @Input() device_type: DeviceType = 'switch';
+
+  stateBtnStyle = {
+    color: ''
+  };
 
   constructor() {
-    this.name = 'My device';
-    this.state = '';
-    this.value = 69;
-    this.device_type = 'switch';
+    this.stateEmitter = new EventEmitter();
+    this.valueEmitter = new EventEmitter();
   }
 
   ngOnInit(): void {
+    this.stateBtnStyle.color = this.state ? '#5d85f5' : '#ff4e4e';
   }
 
-  getValue()
-  {
-    if(typeof this.value === 'number'){
-      return `${this.value} %`;
+  stateToggle() {
+    this.state = !this.state;
+    this.stateBtnStyle.color = this.state ? '#5d85f5' : '#ff4e4e';
+    this.stateEmitter.emit(this.state);
+  }
+
+  getValue() {
+    if (typeof this.value === 'number') {
+      return `${this.value}%`;
     }
     return this.value;
   }
+
+  getCardWidth() {
+    switch (this.device_type) {
+      case 'switch':
+      case 'pump':
+        return '180px';
+      case 'slider':
+      case 'tank_level':
+        return '280px';
+    }
+  }
+
 
 }
