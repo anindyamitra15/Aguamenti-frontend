@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  uri: 'http://localhost:3020' 
+  uri: 'http://aguamenti-demo.herokuapp.com' 
+  // uri: 'http://localhost:3020' 
 };
 
 /*

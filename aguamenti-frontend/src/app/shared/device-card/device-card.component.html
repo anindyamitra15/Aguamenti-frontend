@@ -1,13 +1,22 @@
 <mat-card>
     <div class="top">
+
         <h3 class="title">{{name}}</h3>
         <button mat-icon-button class="edit">
             <mat-icon>edit</mat-icon>
         </button>
+
     </div>
-    <button mat-icon-button class="state">
-        <mat-icon>power_settings_new</mat-icon>
+
+    <button mat-icon-button class="state" (click)="stateToggle()">
+        <mat-icon [ngStyle]="{color:this.state ? '#5d85f5' : '#ff4e4e'}">power_settings_new</mat-icon>
     </button>
 
     <div class="percentage">{{getValue()}}</div>
+
+    <button mat-icon-button class="expand">
+        <mat-icon style="color: #5d85f5">fullscreen</mat-icon>
+    </button>
+
+    <p class="misc">Other stats...</p>
 </mat-card>

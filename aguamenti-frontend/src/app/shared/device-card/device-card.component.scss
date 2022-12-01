@@ -1,4 +1,5 @@
 mat-card {
+    margin: 1rem;
     background-color: #ededed;
     display: inline-flex;
     min-width: 180px;
@@ -6,10 +7,14 @@ mat-card {
     border-radius: 1.5rem;
     flex-direction: column;
     color: #4F4F4F;
+    padding-bottom: 0;
+    z-index: 1;
+
 
     .top {
         display: flex;
         align-items: center;
+
         .title {
             margin: 0;
             margin-right: 10px;
@@ -17,21 +22,77 @@ mat-card {
 
         .edit {
             display: inline;
+            margin-right: 3rem;
+        }
+
+    }
+
+
+
+    .state,
+    .expand {
+        position: absolute;
+        right: 10px;
+        width: 3rem;
+        height: 3rem;
+
+        mat-icon {
+            transform: translate(-0.3rem, 0);
+            font-weight: 700;
+            font-size: 2rem;
         }
     }
 
-
-
     .state {
-        position: absolute;
-        right: 10px;
         top: 5px;
     }
 
+    .expand {
+        bottom: 10px;
+    }
+
     .percentage {
-        padding-top: 15%;
+        padding-top: 2rem;
         font-size: 300%;
         font-weight: 800;
+    }
+
+    .misc {
+        margin: 1.3rem 0 0.5rem 0.8rem;
+        overflow-x: hidden;
+    }
+
+}
+
+// mat-card::before {
+//     content: '';
+//     top: 0;
+//     left: 0;
+//     width: 70%;
+//     height: 100%;
+//     position: absolute;
+//     border-radius: 1.5rem;
+//     z-index: -1;
+//     overflow: hidden;
+//     background-color: aqua;
+// }
+
+
+@media screen and (max-width: 800px) {
+    mat-card {
+        min-width: 20vw;
+        margin: 0.5rem;
+
+        .percentage {
+            padding-top: 1rem;
+            font-size: 180%;
+            font-weight: 800;
+        }
+
+        .misc {
+            margin-top: 0.2rem;
+            margin-left: 0.2rem;
+        }
     }
 
 }
