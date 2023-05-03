@@ -1,1 +1,7 @@
-<p>overview page is yet to be designed in the next phase of this project!</p>
+<h2>All houses belonging to {{user}}:</h2>
+
+<house-card 
+    *ngFor="let house of houseObservable$ | async"
+    name="{{house.name}}"
+    (clickEmitter)="onClickHandler(house)"
+></house-card>

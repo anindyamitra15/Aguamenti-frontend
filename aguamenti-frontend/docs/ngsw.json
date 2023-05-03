@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1669905662588,
-  "index": "/aguamenti-frontend/index.html",
+  "timestamp": 1669907114752,
+  "index": "/aguamenti-ui-deploy/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/aguamenti-frontend/favicon.ico",
-        "/aguamenti-frontend/index.html",
-        "/aguamenti-frontend/main.b54575c2d6bcfc66d505.js",
-        "/aguamenti-frontend/manifest.webmanifest",
-        "/aguamenti-frontend/polyfills.dbfd0a99c515bfcdda1f.js",
-        "/aguamenti-frontend/runtime.e6293f53ce5a161667dd.js",
-        "/aguamenti-frontend/styles.c5d392dee3c2d712f2d7.css"
+        "/aguamenti-ui-deploy/favicon.ico",
+        "/aguamenti-ui-deploy/index.html",
+        "/aguamenti-ui-deploy/main.ec538f4b9d9fc82ddefb.js",
+        "/aguamenti-ui-deploy/manifest.webmanifest",
+        "/aguamenti-ui-deploy/polyfills.dbfd0a99c515bfcdda1f.js",
+        "/aguamenti-ui-deploy/runtime.e6293f53ce5a161667dd.js",
+        "/aguamenti-ui-deploy/styles.c5d392dee3c2d712f2d7.css"
       ],
       "patterns": []
     },
@@ -29,35 +29,35 @@
         "ignoreVary": true
       },
       "urls": [
-        "/aguamenti-frontend/assets/icons/icon-128x128.png",
-        "/aguamenti-frontend/assets/icons/icon-144x144.png",
-        "/aguamenti-frontend/assets/icons/icon-152x152.png",
-        "/aguamenti-frontend/assets/icons/icon-192x192.png",
-        "/aguamenti-frontend/assets/icons/icon-384x384.png",
-        "/aguamenti-frontend/assets/icons/icon-512x512.png",
-        "/aguamenti-frontend/assets/icons/icon-72x72.png",
-        "/aguamenti-frontend/assets/icons/icon-96x96.png"
+        "/aguamenti-ui-deploy/assets/icons/icon-128x128.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-144x144.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-152x152.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-192x192.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-384x384.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-512x512.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-72x72.png",
+        "/aguamenti-ui-deploy/assets/icons/icon-96x96.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/aguamenti-frontend/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/aguamenti-frontend/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/aguamenti-frontend/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/aguamenti-frontend/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/aguamenti-frontend/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/aguamenti-frontend/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/aguamenti-frontend/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/aguamenti-frontend/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "/aguamenti-frontend/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/aguamenti-frontend/index.html": "81f02b354585aebc701c3f1a14628e26f0eb25ce",
-    "/aguamenti-frontend/main.b54575c2d6bcfc66d505.js": "ddaaea2e0f2f1ba59a7be64462e95bdebd4862cd",
-    "/aguamenti-frontend/manifest.webmanifest": "032516e42b1e1ba1054d0b11c00781c356310979",
-    "/aguamenti-frontend/polyfills.dbfd0a99c515bfcdda1f.js": "a94a421789a3da6e97391f861782609bf87788b8",
-    "/aguamenti-frontend/runtime.e6293f53ce5a161667dd.js": "c8fefcfe324d6e89eafbc2853b4130e63d542a2f",
-    "/aguamenti-frontend/styles.c5d392dee3c2d712f2d7.css": "2860c4682a99e57b40a0863a571d24133bdeb054"
+    "/aguamenti-ui-deploy/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/aguamenti-ui-deploy/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/aguamenti-ui-deploy/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/aguamenti-ui-deploy/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/aguamenti-ui-deploy/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/aguamenti-ui-deploy/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/aguamenti-ui-deploy/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/aguamenti-ui-deploy/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/aguamenti-ui-deploy/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/aguamenti-ui-deploy/index.html": "2407c99a47bd45bac6f69c34e005f2752fb2112f",
+    "/aguamenti-ui-deploy/main.ec538f4b9d9fc82ddefb.js": "ec3980606afd8c54ef245bfaa90c3143d046a56e",
+    "/aguamenti-ui-deploy/manifest.webmanifest": "032516e42b1e1ba1054d0b11c00781c356310979",
+    "/aguamenti-ui-deploy/polyfills.dbfd0a99c515bfcdda1f.js": "a94a421789a3da6e97391f861782609bf87788b8",
+    "/aguamenti-ui-deploy/runtime.e6293f53ce5a161667dd.js": "c8fefcfe324d6e89eafbc2853b4130e63d542a2f",
+    "/aguamenti-ui-deploy/styles.c5d392dee3c2d712f2d7.css": "2860c4682a99e57b40a0863a571d24133bdeb054"
   },
   "navigationUrls": [
     {

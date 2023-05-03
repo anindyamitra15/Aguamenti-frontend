@@ -88,7 +88,12 @@ export class ApiService {
   getAllHouses(): Observable<GenericApiResponse> {
     const url = `${environment.uri}/user/all-houses`;
     return this.http
-      .get<GenericApiResponse>(url, this.getHttpOptions(true));
+      .get<GenericApiResponse>(url, this.getHttpOptions(true))
+      .pipe(map((data: GenericApiResponse) => {
+        const houses = Object.values(data.result);
+        data.result = houses;
+        return data
+      }));
   }
 
   createHouse(body: {
