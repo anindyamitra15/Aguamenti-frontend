@@ -31,6 +31,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   constructor(
     private bpObserver: BreakpointObserver,
     private router: Router,
+    private route: ActivatedRoute
   ) {
     this.sidenavOpenChange = new EventEmitter();
     this.onMobileView = new EventEmitter();
@@ -41,6 +42,16 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       .subscribe((e: any) => {
         this.currentRoute = e.url?.substring(1) ?? "";
       });
+
+    this
+      .route
+      .children
+      .forEach(route =>
+        route.url
+          .subscribe(
+            data =>
+              this.currentRoute = data[0]?.path ?? '')
+      );
   }
 
   ngAfterViewInit() {
