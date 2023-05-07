@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { DeviceCardComponent } from './device-card/device-card.component';
 import { HouseCardComponent } from './house-card/house-card.component';
+import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { HouseCardComponent } from './house-card/house-card.component';
     SidebarOptionComponent,
     DeviceCardComponent,
     HouseCardComponent,
+    ScheduleCardComponent,
   ],
   exports: [
     NavbarComponent,
@@ -42,6 +44,7 @@ import { HouseCardComponent } from './house-card/house-card.component';
     SidebarComponent,
     DeviceCardComponent,
     HouseCardComponent,
+    ScheduleCardComponent
   ]
 })
 export class SharedModule { }

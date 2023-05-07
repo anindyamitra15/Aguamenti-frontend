@@ -15,6 +15,7 @@ import { OverviewComponent } from 'src/app/pages/overview/overview.component';
 import { SchedulingComponent } from 'src/app/pages/scheduling/scheduling.component';
 import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { LogDisplayComponent } from 'src/app/pages/log-display/log-display.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { LogDisplayComponent } from 'src/app/pages/log-display/log-display.compo
     ReactiveFormsModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatCardModule,
   ],
   exports: [
     HomeComponent,
