@@ -8,6 +8,12 @@
     justify-content: flex-start;
 
     .schedules {
+        overflow-y: hidden;
+        .schedule-container {
+            height: 100%;
+            overflow-y: auto;
+        }
+
         flex-grow: 1;
         width: 90%;
         background-color: #ededed;

@@ -16,6 +16,7 @@ import { SchedulingComponent } from 'src/app/pages/scheduling/scheduling.compone
 import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { LogDisplayComponent } from 'src/app/pages/log-display/log-display.component';
 import { MatCardModule } from '@angular/material/card';
+import { ScheduleComponent } from 'src/app/pages/scheduling/schedule/schedule.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     DashboardComponent,
     OverviewComponent,
     SchedulingComponent,
+    ScheduleComponent,
     SettingsComponent,
     LogDisplayComponent,
   ],
@@ -45,8 +47,10 @@ import { MatCardModule } from '@angular/material/card';
     DashboardComponent,
     OverviewComponent,
     SchedulingComponent,
+    ScheduleComponent,
     SettingsComponent,
     LogDisplayComponent,
   ]
 })
+
 export class HomeModule { }
