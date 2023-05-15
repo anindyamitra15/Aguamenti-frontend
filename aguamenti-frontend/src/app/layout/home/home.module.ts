@@ -17,7 +17,7 @@ import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { LogDisplayComponent } from 'src/app/pages/log-display/log-display.component';
 import { MatCardModule } from '@angular/material/card';
 import { ScheduleComponent } from 'src/app/pages/scheduling/schedule/schedule.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,7 @@ import { ScheduleComponent } from 'src/app/pages/scheduling/schedule/schedule.co
     MatFormFieldModule,
     HttpClientModule,
     MatCardModule,
+    MatSlideToggleModule
   ],
   exports: [
     HomeComponent,

@@ -5,6 +5,9 @@ mat-card {
     $large-size-button: 50px;
     $large-size-icon: 38px;
 
+    display: flex;
+    align-items: center;
+
     button[mat-icon-button] {
         width: $large-size-button;
         height: $large-size-button;
@@ -16,5 +19,14 @@ mat-card {
             height: $large-size-icon;
             line-height: $large-size-icon;
         }
+    }
+
+    .drag,
+    .enable {
+        flex: 1;
+    }
+
+    .content {
+        flex: 10;
     }
 }
