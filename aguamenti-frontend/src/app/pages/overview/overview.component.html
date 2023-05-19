@@ -1,7 +1,14 @@
-<h2>All houses belonging to {{user}}:</h2>
+<div class="container">
 
-<house-card 
-    *ngFor="let house of house$ | async"
-    name="{{house.name}}"
-    (clickEmitter)="onClickHandler(house)"
-></house-card>
+    <h2>All houses belonging to {{user}}:</h2>
+
+    <house-card *ngFor="let house of house$ | async" name="{{house.name}}"
+        (clickEmitter)="onClickHandler(house)"></house-card>
+
+    <div class="add-btn">
+        <button mat-fab color="primary" class="mat-elevation-z0" aria-label="Add Schedules">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+</div>

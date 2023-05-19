@@ -1,11 +1,15 @@
-<h2>All the devices in {{house_name}}</h2>
+<div class="container">
 
-<device-card
-*ngFor="let device of devices | keyvalue"
-[chip_id]="device.key"
-[name]="device.value.name"
-[state]="device.value.state"
-[value]="device.value.value"
-(onUpdate) = "onChange($event)"
-[device_type]="device.value.device_type"
-></device-card>
+    <h2>All the devices in {{house_name}}</h2>
+
+    <device-card *ngFor="let device of devices | keyvalue" [chip_id]="device.key" [name]="device.value.name"
+        [state]="device.value.state" [value]="device.value.value" (onUpdate)="onChange($event)"
+        [device_type]="device.value.device_type"></device-card>
+
+    <div class="add-btn">
+        <button mat-fab color="primary" class="mat-elevation-z0" aria-label="Add Schedules">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+</div>

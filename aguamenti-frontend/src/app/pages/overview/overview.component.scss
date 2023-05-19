@@ -1,0 +1,14 @@
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    gap: 2rem;
+
+    .add-btn {
+        z-index: 1;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
