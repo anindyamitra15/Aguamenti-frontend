@@ -1,20 +1,14 @@
 <div class="container">
-    <mat-card class="schedules time">
+    <mat-card class="schedules time" *ngIf="timingSchedules.length">
         <div class="schedule-container">
             <h2>Time Schedule</h2>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
+            <app-schedule *ngFor="let sch of timingSchedules" [schedule]="sch"></app-schedule>
         </div>
     </mat-card>
-    <mat-card class="schedules action">
+    <mat-card class="schedules action" *ngIf="actionSchedules.length">
         <div class="schedule-container">
             <h2>Action Schedule</h2>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
-            <app-schedule></app-schedule>
+            <app-schedule *ngFor="let sch of actionSchedules" [schedule]="sch"></app-schedule>
         </div>
     </mat-card>
 

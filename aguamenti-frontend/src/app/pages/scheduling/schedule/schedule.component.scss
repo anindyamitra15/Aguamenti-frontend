@@ -2,31 +2,54 @@ mat-card {
     background-color: #d9d9d9;
     margin: 1rem;
     height: 3rem;
-    $large-size-button: 50px;
-    $large-size-icon: 38px;
-
     display: flex;
     align-items: center;
+    
+    // $large-size-button: 50px;
+    // $large-size-icon: 38px;
 
-    button[mat-icon-button] {
-        width: $large-size-button;
-        height: $large-size-button;
-        line-height: $large-size-button;
 
-        mat-icon {
-            font-size: $large-size-icon;
-            width: $large-size-icon;
-            height: $large-size-icon;
-            line-height: $large-size-icon;
-        }
-    }
+    // button[mat-icon-button] {
+    //     width: $large-size-button;
+    //     height: $large-size-button;
+    //     line-height: $large-size-button;
+
+    //     mat-icon {
+    //         font-size: $large-size-icon;
+    //         width: $large-size-icon;
+    //         height: $large-size-icon;
+    //         line-height: $large-size-icon;
+    //     }
+    // }
 
     .drag,
+    .time,
     .enable {
         flex: 1;
     }
 
+    .time,
+    .name,
+    .description {
+
+        font-weight: bold;
+        color: #767676;
+    }
+
+    .time,
+    .name {
+        font-size: larger;
+    }
+
+    .name {
+        color: #4f4f4f;
+    }
+
     .content {
         flex: 10;
+
+        span {
+            margin-right: 3rem;
+        }
     }
 }
