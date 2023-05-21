@@ -11,11 +11,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { DeviceCardComponent } from './device-card/device-card.component';
 import { HouseCardComponent } from './house-card/house-card.component';
 import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
-
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   imports: [
@@ -28,6 +28,7 @@ import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    MatSliderModule
   ],
   declarations: [
     NavbarComponent,

@@ -8,6 +8,11 @@
 
     </div>
 
+    <div class="slider" *ngIf="device_type == 'slider'">
+        <mat-slider (input)="onInput($event)" [value]="value" (valueChange)="valueChange($event)">
+        </mat-slider>
+    </div>
+
     <button mat-icon-button class="state" (click)="stateToggle()">
         <mat-icon [ngStyle]="{color:this.state ? '#5d85f5' : '#ff4e4e'}">power_settings_new</mat-icon>
     </button>

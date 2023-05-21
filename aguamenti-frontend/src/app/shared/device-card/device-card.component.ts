@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 import { DeviceType } from 'src/app/dtos/deviceTypes';
 
 @Component({
@@ -35,6 +36,22 @@ export class DeviceCardComponent implements OnInit {
       state: this.state,
       value: this.value
     });
+  }
+
+  valueChange(data: number | null) {
+    if (data === null) return;
+    this.valueEmitter.emit(this.value);
+
+    this.onUpdate.emit({
+      chip_id: this.chip_id,
+      state: this.state,
+      value: this.value
+    });
+
+  }
+
+  onInput(data: MatSliderChange) {
+    this.value = data.value as number | string;
   }
 
   getValue() {

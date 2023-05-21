@@ -6,8 +6,9 @@ import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 interface Devices {
   [key: string]: {
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(
     private api: ApiService,
     private cookie: CookieService,
+    private router: Router,
     private store: Store<any>
   ) {
     this.routeData$ = this.store.select('route_data');
@@ -42,51 +44,57 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeData$.subscribe(d => {
-      if (d.house) {
-        this.house = d.house;
+      if (!d.house) {
+        this.router.navigate(['/']);
       }
-    })
-    this.api
+      this.house = d.house;
+    });
+
+    if (this.house) {
+      this.api
       .getAllDevices({ house_id: this.house._id })
       .pipe(map(data => data.result))
       .subscribe(data => {
         const deviceArray = data.devices;
         deviceArray.forEach((device: any) => {
           this.devices[device.chip_id] = device;
+          console.log(device.device_type);
+
         });
       });
 
-    this.socket = io(environment.uri, {
-      reconnectionDelay: 5000,
-      reconnectionDelayMax: 10000,
-      extraHeaders: {
-        authorization: `Bearer ${this.cookie.get(USER_TOKEN)}`,
-      },
-      query: { ep: this.house.endpoint }
-    });
+      this.socket = io(environment.uri, {
+        reconnectionDelay: 5000,
+        reconnectionDelayMax: 10000,
+        extraHeaders: {
+          authorization: `Bearer ${this.cookie.get(USER_TOKEN)}`,
+        },
+        query: { ep: this.house.endpoint }
+      });
 
-    this.socket?.connect();
+      this.socket?.connect();
 
-    this.socket?.on('connect', () => {
-      console.log('connected');
-    });
-    this.socket?.on('disconnect', () => {
-      console.log('disconnected');
-    });
+      this.socket?.on('connect', () => {
+        console.log('connected');
+      });
+      this.socket?.on('disconnect', () => {
+        console.log('disconnected');
+      });
 
-    this.socket?.on('to_ui', (data) => {
-      console.log(data);
+      this.socket?.on('to_ui', (data) => {
+        console.log(data);
 
-      this.devices[data.chip_id].state = data.state;
-      this.devices[data.chip_id].value = data.value;
-    });
+        this.devices[data.chip_id].state = data.state;
+        this.devices[data.chip_id].value = data.value;
+      });
 
-    this.socket?.on('ui_sync', (data) => {
-      console.log(data);
+      this.socket?.on('ui_sync', (data) => {
+        console.log(data);
 
-      this.devices[data.chip_id].state = data.state;
-      this.devices[data.chip_id].value = data.value;
-    });
+        this.devices[data.chip_id].state = data.state;
+        this.devices[data.chip_id].value = data.value;
+      });
+    }
   }
 
   ngOnDestroy(): void {

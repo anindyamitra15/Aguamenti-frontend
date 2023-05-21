@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
