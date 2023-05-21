@@ -6,14 +6,11 @@
         </button>
     </div>
 
-    <div class="content">
-        <span class="name">{{schedule?.name}}</span>
-        <span class="description">{{schedule?.repeat_on?.join(' | ')}}</span>
-    </div>
+    <div class="name">{{schedule?.name}}</div>
+    <div class="description">{{schedule?.repeat_on?.join(' | ')}}</div>
     <div class="time">{{(repeat_time)}}</div>
     <div class="enable">
-        <mat-slide-toggle aria-label="enable-or-disable-schedule" 
-            [checked]="schedule?.enabled"
+        <mat-slide-toggle aria-label="enable-or-disable-schedule" [checked]="schedule?.enabled"
             (change)="enableDisableSchedule($event)">
         </mat-slide-toggle>
     </div>

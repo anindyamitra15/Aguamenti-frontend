@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DeviceType } from 'src/app/dtos/deviceTypes';
 import { ApiService } from 'src/app/services/api.service';
 import io, { Socket } from 'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
+import { map } from 'rxjs/operators';
 
 interface Devices {
   [key: string]: {
@@ -13,7 +14,6 @@ interface Devices {
     device_type: DeviceType,
     state: boolean,
     value: string | number,
-    pump_chip_id?: string
   }
 };
 
@@ -23,7 +23,7 @@ interface Devices {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   devices: Devices = {};
   endpoint: string = '';
@@ -41,9 +41,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.api
       .getAllDevices({ house_id: '6384df06c1855162430afec8' })
+      .pipe(map(data => data.result))
       .subscribe(data => {
-        const deviceArray = data.result.devices;
-
+        const deviceArray = data.devices;
         deviceArray.forEach((device: any) => {
           this.devices[device.chip_id] = device;
         });
@@ -51,9 +51,10 @@ export class DashboardComponent implements OnInit {
 
     this.api
       .getHouseDetails({ house_id: '6384df06c1855162430afec8' })
+      .pipe(map(data => data.result.house))
       .subscribe(data => {
-        this.house_name = data.result._doc.name;
-        this.endpoint = data.result._doc.endpoint;
+        this.house_name = data.name;
+        this.endpoint = data.endpoint;
         this.socket = io(environment.uri, {
           reconnectionDelay: 5000,
           reconnectionDelayMax: 10000,
@@ -78,14 +79,18 @@ export class DashboardComponent implements OnInit {
           this.devices[data.chip_id].state = data.state;
           this.devices[data.chip_id].value = data.value;
         });
-        
+
         this.socket?.on('ui_sync', (data) => {
           console.log(data);
-          
+
           this.devices[data.chip_id].state = data.state;
           this.devices[data.chip_id].value = data.value;
         });
       });
+  }
+
+  ngOnDestroy(): void {
+    this.socket?.disconnect();
   }
 
   onChange(event: any) {

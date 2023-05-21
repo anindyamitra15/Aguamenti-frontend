@@ -4,6 +4,8 @@ mat-card {
     height: 3rem;
     display: flex;
     align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
     
     // $large-size-button: 50px;
     // $large-size-icon: 38px;
@@ -23,15 +25,17 @@ mat-card {
     // }
 
     .drag,
-    .time,
     .enable {
         flex: 1;
     }
 
+    .time {
+        flex: 3;
+    }
+    
     .time,
     .name,
     .description {
-
         font-weight: bold;
         color: #767676;
     }
@@ -45,11 +49,7 @@ mat-card {
         color: #4f4f4f;
     }
 
-    .content {
-        flex: 10;
-
-        span {
-            margin-right: 3rem;
-        }
+    .name, .description {
+        flex: 5;
     }
 }

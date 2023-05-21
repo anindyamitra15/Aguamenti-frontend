@@ -39,8 +39,6 @@ export class DeviceCardComponent implements OnInit {
 
   getValue() {
     if (typeof this.value === 'number') {
-      if (this.device_type === 'tank_level')
-        return 80 - this.value % 80;
       return `${this.value}%`;
     }
     return this.value;
