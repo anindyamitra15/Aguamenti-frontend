@@ -12,3 +12,10 @@
 - Angular Material
 - SocketIO
 - NodeJS
+
+## Deployment
+- Deployment is handled in [aguamenti-ui-deploy](https://github.com/anindyamitra15/aguamenti-ui-deploy) repository.
+- There are few steps that needs to be performed after ng build and copying the `./dist` folder to the deployment repository:
+  - change base path in `index.html` to ```<base href="/aguamenti-ui-deploy/">```
+  - Copy index.html and rename it to 404.html in the same folder.
+  - Push it to aguamenti-ui-deploy
