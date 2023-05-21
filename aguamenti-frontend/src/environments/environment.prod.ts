@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  uri: 'https://aguamenti-demo.herokuapp.com' 
+  uri: 'https://aguamenti-backend-production.up.railway.app' 
 };
