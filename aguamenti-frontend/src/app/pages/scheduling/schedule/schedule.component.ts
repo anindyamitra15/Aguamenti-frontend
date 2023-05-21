@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Schedule } from 'src/app/dtos/api.dtos';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-schedule',
@@ -12,7 +13,7 @@ export class ScheduleComponent implements OnInit {
   @Input() schedule: Schedule | undefined;
   repeat_time?: string;
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     if (this.schedule?.repeat_time != undefined)
@@ -23,6 +24,9 @@ export class ScheduleComponent implements OnInit {
   enableDisableSchedule(value: MatSlideToggleChange) {
     // fire an api call
     console.log(value.checked);
+    this.api
+      .editSchedule({ _id: this.schedule?._id as string, enabled: value.checked })
+      .subscribe(d => console.log(d.code, d.message));
   }
 
 }

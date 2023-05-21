@@ -135,6 +135,15 @@ export class ApiService {
     .get<GenericApiResponse>(url, this.getHttpOptions(true));
   }
 
+  editSchedule(body: {
+    _id: string,
+    enabled: boolean
+  }){
+    const url = `${environment.uri}/schedule/edit`;
+    return this.http
+      .put<GenericApiResponse>(url, body, this.getHttpOptions(true));
+  }
+
   deleteHouse(body: {
     house_id: string
   }): Observable<GenericApiResponse> {

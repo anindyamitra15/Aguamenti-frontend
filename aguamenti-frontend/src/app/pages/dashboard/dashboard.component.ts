@@ -58,7 +58,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         const deviceArray = data.devices;
         deviceArray.forEach((device: any) => {
           this.devices[device.chip_id] = device;
-          console.log(device.device_type);
 
         });
       });
