@@ -15,11 +15,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: OverviewComponent,
       },
       {
-        path: 'overview',
-        component: OverviewComponent,
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
         path: 'scheduling',

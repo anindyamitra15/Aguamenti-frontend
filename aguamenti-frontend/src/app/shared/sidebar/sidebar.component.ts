@@ -21,8 +21,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   currentRoute!: string;
 
   SidebarOptions: SidebarInterface[] = [
-    { icon: 'visibility', item: 'Overview', value: 'overview' },
-    { icon: 'pie_chart', item: 'Dashboard', value: '' },
+    { icon: 'visibility', item: 'Overview', value: '' },
+    { icon: 'pie_chart', item: 'Dashboard', value: 'dashboard' },
     { icon: 'timer', item: 'Scheduling', value: 'scheduling' },
     { icon: 'event_note', item: 'Logs', value: 'logs' },
     { icon: 'settings', item: 'Settings', value: 'settings' },

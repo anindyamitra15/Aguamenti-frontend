@@ -5,7 +5,9 @@ import io, { Socket } from 'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 interface Devices {
   [key: string]: {
@@ -25,22 +27,27 @@ interface Devices {
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
+  routeData$: Observable<any>;
   devices: Devices = {};
-  endpoint: string = '';
-  house_name: string = '';
   socket?: Socket;
-
+  house?: any;
 
   constructor(
     private api: ApiService,
-    private cookie: CookieService
+    private cookie: CookieService,
+    private store: Store<any>
   ) {
-
+    this.routeData$ = this.store.select('route_data');
   }
 
   ngOnInit(): void {
+    this.routeData$.subscribe(d => {
+      if (d.house) {
+        this.house = d.house;
+      }
+    })
     this.api
-      .getAllDevices({ house_id: '6384df06c1855162430afec8' })
+      .getAllDevices({ house_id: this.house._id })
       .pipe(map(data => data.result))
       .subscribe(data => {
         const deviceArray = data.devices;
@@ -49,44 +56,37 @@ export class DashboardComponent implements OnInit, OnDestroy {
         });
       });
 
-    this.api
-      .getHouseDetails({ house_id: '6384df06c1855162430afec8' })
-      .pipe(map(data => data.result.house))
-      .subscribe(data => {
-        this.house_name = data.name;
-        this.endpoint = data.endpoint;
-        this.socket = io(environment.uri, {
-          reconnectionDelay: 5000,
-          reconnectionDelayMax: 10000,
-          extraHeaders: {
-            authorization: `Bearer ${this.cookie.get(USER_TOKEN)}`,
-          },
-          query: { ep: this.endpoint }
-        });
+    this.socket = io(environment.uri, {
+      reconnectionDelay: 5000,
+      reconnectionDelayMax: 10000,
+      extraHeaders: {
+        authorization: `Bearer ${this.cookie.get(USER_TOKEN)}`,
+      },
+      query: { ep: this.house.endpoint }
+    });
 
-        this.socket?.connect();
+    this.socket?.connect();
 
-        this.socket?.on('connect', () => {
-          console.log('connected');
-        });
-        this.socket?.on('disconnect', () => {
-          console.log('disconnected');
-        });
+    this.socket?.on('connect', () => {
+      console.log('connected');
+    });
+    this.socket?.on('disconnect', () => {
+      console.log('disconnected');
+    });
 
-        this.socket?.on('to_ui', (data) => {
-          console.log(data);
+    this.socket?.on('to_ui', (data) => {
+      console.log(data);
 
-          this.devices[data.chip_id].state = data.state;
-          this.devices[data.chip_id].value = data.value;
-        });
+      this.devices[data.chip_id].state = data.state;
+      this.devices[data.chip_id].value = data.value;
+    });
 
-        this.socket?.on('ui_sync', (data) => {
-          console.log(data);
+    this.socket?.on('ui_sync', (data) => {
+      console.log(data);
 
-          this.devices[data.chip_id].state = data.state;
-          this.devices[data.chip_id].value = data.value;
-        });
-      });
+      this.devices[data.chip_id].state = data.state;
+      this.devices[data.chip_id].value = data.value;
+    });
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +13,11 @@ import { USER_TOKEN } from 'src/app/dtos/cookie-fields';
 export class HomeComponent implements OnInit {
   sidenavOpen: boolean = false;
   mobileView: boolean = false;
-
   constructor(
     private cookie: CookieService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {
+  }
 
   ngOnInit(): void {
     const auth: string = this.cookie.get(USER_TOKEN);

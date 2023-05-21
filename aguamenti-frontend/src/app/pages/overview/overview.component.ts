@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { changeRoute } from 'src/app/store/route-data.actions';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -15,7 +17,8 @@ export class OverviewComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private api: ApiService
+    private api: ApiService,
+    private store: Store<any>
   ) {
     this.house$ = this.api.getAllHouses().pipe(
       tap(data => {
@@ -30,9 +33,8 @@ export class OverviewComponent implements OnInit {
   }
 
   onClickHandler(house: any) {
-    console.log(house);
-    
-    this.router.navigate(['/']);
+    this.store.dispatch(changeRoute({ house }));
+    this.router.navigate(['/dashboard']);
   }
 
 }

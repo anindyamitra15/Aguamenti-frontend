@@ -9,6 +9,7 @@ import { LoginModule } from './layout/login/login.module';
 import { StoreModule } from '@ngrx/store';
 import { HomeModule } from './layout/home/home.module';
 import { CookieService } from 'ngx-cookie-service';
+import { RouteDataReducer } from './store/route-data.reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,6 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     LoginModule,
     HomeModule,
-
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -27,7 +27,7 @@ import { CookieService } from 'ngx-cookie-service';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({'route_data': RouteDataReducer})
   ],
   providers: [
     CookieService
