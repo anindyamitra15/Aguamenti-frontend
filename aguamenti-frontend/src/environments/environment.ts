@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // uri: 'https://aguamenti-backend-production.up.railway.app'
-  uri: 'http://localhost:3020' 
+  // uri: 'http://192.168.129.239:3020' 
+  uri:"http://localhost:3020"
 };
 
 /*

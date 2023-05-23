@@ -9,7 +9,11 @@
     </div>
 
     <div class="slider" *ngIf="device_type == 'slider'">
-        <mat-slider (input)="onInput($event)" [value]="value" (valueChange)="valueChange($event)">
+        <mat-slider 
+            (input)="onInput($event)" 
+            [value]="value" 
+            (valueChange)="valueChange($event)"
+        >
         </mat-slider>
     </div>
 

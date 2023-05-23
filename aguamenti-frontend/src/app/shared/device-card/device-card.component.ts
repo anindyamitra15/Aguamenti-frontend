@@ -13,7 +13,7 @@ export class DeviceCardComponent implements OnInit {
   @Input() chip_id: string = '';
   @Input() state: boolean = true;
   @Output() stateEmitter: EventEmitter<boolean>;
-  @Input() value: string | number = 69;
+  @Input() value: string | number = 0;
   @Output() valueEmitter: EventEmitter<string | number>;
   @Input() device_type: DeviceType = 'switch';
   @Output() onUpdate: EventEmitter<any>;
