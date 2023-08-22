@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { changeRoute } from 'src/app/store/route-data.actions';
+import { MatDialog } from '@angular/material/dialog';
+import { GenericModalComponent } from 'src/app/shared/modals/generic-modal/generic-modal.component';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -18,7 +20,8 @@ export class OverviewComponent implements OnInit {
   constructor(
     private router: Router,
     private api: ApiService,
-    private store: Store<any>
+    private store: Store<any>,
+    public dialog: MatDialog
   ) {
     this.house$ = this.api.getAllHouses().pipe(
       tap(data => {
@@ -35,6 +38,16 @@ export class OverviewComponent implements OnInit {
   onClickHandler(house: any) {
     this.store.dispatch(changeRoute({ house }));
     this.router.navigate(['/dashboard']);
+  }
+
+  openAddModal(){
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      data: {name: "this.name", animal: "this.animal"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 
 }

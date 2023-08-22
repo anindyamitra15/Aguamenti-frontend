@@ -16,6 +16,7 @@ import { DeviceCardComponent } from './device-card/device-card.component';
 import { HouseCardComponent } from './house-card/house-card.component';
 import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { MatSliderModule } from '@angular/material/slider';
     DeviceCardComponent,
     HouseCardComponent,
     ScheduleCardComponent,
+    GenericModalComponent,
   ],
   exports: [
     NavbarComponent,

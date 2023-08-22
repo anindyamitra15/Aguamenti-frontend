@@ -9,6 +9,8 @@ import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { GenericModalComponent } from 'src/app/shared/modals/generic-modal/generic-modal.component';
 
 interface Devices {
   [key: string]: {
@@ -37,7 +39,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private api: ApiService,
     private cookie: CookieService,
     private router: Router,
-    private store: Store<any>
+    private store: Store<any>,
+    public dialog: MatDialog
   ) {
     this.routeData$ = this.store.select('route_data');
   }
@@ -150,6 +153,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   onChange(event: any) {
     this.socket?.emit("from_ui", event);
+  }
+
+  openAddModal(){
+    const dialogRef = this.dialog.open(GenericModalComponent, {
+      data: {name: "this.name", animal: "this.animal"},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 
 }

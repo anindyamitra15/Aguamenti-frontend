@@ -6,7 +6,13 @@
         (clickEmitter)="onClickHandler(house)"></house-card>
 
     <div class="add-btn">
-        <button mat-fab color="primary" class="mat-elevation-z0" aria-label="Add Schedules">
+        <button 
+        mat-fab 
+        color="primary" 
+        class="mat-elevation-z0" 
+        aria-label="Add Schedules"
+        (click)="openAddModal()"
+        >
             <mat-icon>add</mat-icon>
         </button>
     </div>
