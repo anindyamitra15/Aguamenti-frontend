@@ -10,13 +10,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { DeviceCardComponent } from './device-card/device-card.component';
 import { HouseCardComponent } from './house-card/house-card.component';
 import { ScheduleCardComponent } from './schedule-card/schedule-card.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
+import { AddHouseComponent } from './modals/add-house/add-house.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActionModalComponent } from './modals/action-modal/action-modal.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -29,7 +33,16 @@ import { GenericModalComponent } from './modals/generic-modal/generic-modal.comp
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatDividerModule
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { duration: 800 }
+    },
   ],
   declarations: [
     NavbarComponent,
@@ -40,6 +53,8 @@ import { GenericModalComponent } from './modals/generic-modal/generic-modal.comp
     HouseCardComponent,
     ScheduleCardComponent,
     GenericModalComponent,
+    AddHouseComponent,
+    ActionModalComponent,
   ],
   exports: [
     NavbarComponent,

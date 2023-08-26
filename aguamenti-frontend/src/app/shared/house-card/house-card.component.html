@@ -1,4 +1,14 @@
-<mat-card (click)="onClick()">
-    <h3>{{name}}</h3>
-    <div class="icon"><mat-icon>home</mat-icon></div>
+<mat-card [class.mat-elevation-z12]="isHovered" (mouseenter)="onMouse(true)" (mouseleave)="onMouse(false)">
+    <h3>{{house.name}}</h3>
+    <div class="row">
+        <button mat-icon-button color="accent" aria-label="Edit this house" (click)="editHouse()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" aria-label="Open this house" (click)="open()">
+            <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" aria-label="Delete this house" (click)="deleteHouse()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
 </mat-card>

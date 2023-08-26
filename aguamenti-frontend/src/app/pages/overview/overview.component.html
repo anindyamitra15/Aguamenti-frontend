@@ -2,8 +2,9 @@
 
     <h2>All houses belonging to {{user}}:</h2>
 
-    <house-card *ngFor="let house of house$ | async" name="{{house.name}}"
-        (clickEmitter)="onClickHandler(house)"></house-card>
+    <house-card *ngFor="let house of house$ | async" [house]="house"
+        (houseCardEvent)="onHouseCardEvent($event)"
+        ></house-card>
 
     <div class="add-btn">
         <button 

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'house-card',
@@ -7,18 +8,36 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HouseCardComponent implements OnInit {
 
-  @Input() name: string = 'My House';
-  @Output() clickEmitter: EventEmitter<any>;
+  @Input() house: any = { name: 'My house' };
+  @Output() houseCardEvent: EventEmitter<{ action: "open" | "edit" | "delete", house: any }>;
 
-  constructor() {
-    this.clickEmitter = new EventEmitter();
+
+  isHovered = false;
+
+  constructor(
+    public dialog: MatDialog,
+  ) {
+
+    this.houseCardEvent = new EventEmitter();
   }
 
   ngOnInit(): void {
   }
 
-  onClick() {
-    this.clickEmitter.emit(0);
+  open() {
+    this.houseCardEvent.emit({ action: "open", house: this.house });
+  }
+
+  onMouse(hover: boolean) {
+    this.isHovered = hover;
+  }
+
+  editHouse() {
+    this.houseCardEvent.emit({action: "edit", house: this.house});
+  }
+
+  deleteHouse() {
+    this.houseCardEvent.emit({action: "delete", house: this.house});
   }
 
 }

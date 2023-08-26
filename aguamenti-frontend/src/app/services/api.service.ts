@@ -110,38 +110,47 @@ export class ApiService {
   }): Observable<GenericApiResponse> {
     const url = `${environment.uri}/house/details/${body.house_id}`;
     return this.http
-    .get<GenericApiResponse>(url, this.getHttpOptions(true));
+      .get<GenericApiResponse>(url, this.getHttpOptions(true));
   }
-  
-  getScheduleByUser(){
+
+  getScheduleByUser() {
     const url = `${environment.uri}/schedule/list-by-user`;
     return this.http
-    .get<GenericApiResponse>(url, this.getHttpOptions(true));
+      .get<GenericApiResponse>(url, this.getHttpOptions(true));
   }
 
   getScheduleByFiringDevice(body: {
     chip_id: string
-  }){
+  }) {
     const url = `${environment.uri}/schedule/list-by-firing-device/${body.chip_id}`;
     return this.http
-    .get<GenericApiResponse>(url, this.getHttpOptions(true));
+      .get<GenericApiResponse>(url, this.getHttpOptions(true));
   }
-  
+
   getScheduleByTrigeredDevice(body: {
     linked_chip_id: string
-  }){
+  }) {
     const url = `${environment.uri}/schedule/list-by-triggered-device/${body.linked_chip_id}`;
     return this.http
-    .get<GenericApiResponse>(url, this.getHttpOptions(true));
+      .get<GenericApiResponse>(url, this.getHttpOptions(true));
   }
 
   editSchedule(body: {
     _id: string,
     enabled: boolean
-  }){
+  }) {
     const url = `${environment.uri}/schedule/edit`;
     return this.http
       .put<GenericApiResponse>(url, body, this.getHttpOptions(true));
+  }
+
+  updateHouse(body: {
+    name: string,
+    house_id: string
+  }): Observable<GenericApiResponse> {
+    const url = `${environment.uri}/house/update`;
+    return this.http
+      .post<GenericApiResponse>(url, body, this.getHttpOptions(true));
   }
 
   deleteHouse(body: {

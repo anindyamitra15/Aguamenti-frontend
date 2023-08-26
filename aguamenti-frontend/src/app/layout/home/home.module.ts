@@ -8,7 +8,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home.component';
 import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component';
 import { MatSelectModule } from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { OverviewComponent } from 'src/app/pages/overview/overview.component';
@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ScheduleComponent } from 'src/app/pages/scheduling/schedule/schedule.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     SettingsComponent,
     LogDisplayComponent,
   ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { duration: 800 }
+    },
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,
@@ -38,6 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatDividerModule,
     MatSelectModule,
+    FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     HttpClientModule,
